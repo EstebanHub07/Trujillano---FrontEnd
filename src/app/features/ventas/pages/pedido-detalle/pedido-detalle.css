@@ -1,0 +1,208 @@
+.volver {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.volver:hover {
+  text-decoration: underline;
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.encabezado__fecha,
+.explicacion {
+  color: var(--texto-suave);
+}
+
+.explicacion {
+  margin: 0.5rem 0 1.25rem;
+}
+
+.disposicion {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .disposicion:not(.disposicion--sola) {
+    grid-template-columns: 1fr 340px;
+  }
+}
+
+.tarjeta,
+.panel {
+  padding: 1.25rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.6rem 0.5rem;
+  text-align: right;
+  border-bottom: 1px solid var(--borde);
+}
+
+.tabla thead th {
+  font-size: var(--t-1);
+  color: var(--texto-suave);
+}
+
+.tabla th:first-child,
+.tabla th:nth-child(2),
+.tabla td:nth-child(2) {
+  text-align: left;
+}
+
+.tabla tbody th {
+  font-weight: 600;
+}
+
+.tabla tfoot th,
+.tabla tfoot td {
+  font-size: var(--t1);
+  font-weight: 700;
+  color: var(--marino);
+  border-bottom: 0;
+}
+
+.pago {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.pago__vence,
+.pago__correo,
+.pago__nota {
+  font-size: var(--t-1);
+  color: var(--texto-suave);
+}
+
+.pago__nota {
+  text-align: center;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+  border: 2px solid var(--borde);
+  border-radius: var(--radio-chico);
+}
+
+.alerta--error {
+  color: var(--error);
+  background: #fdeceb;
+  border-color: #f3b9b5;
+}
+
+.negocio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 3px solid var(--lila);
+}
+
+.negocio > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.marca {
+  font-size: var(--t1);
+  color: var(--marino);
+}
+
+.negocio span {
+  font-size: var(--t-1);
+  color: var(--texto-suave);
+}
+
+.numero {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.numero strong {
+  font-size: var(--t1);
+  color: var(--marino);
+}
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0 0 1rem;
+}
+
+.datos dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+.datos dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+.tabla .tabla__resumen td {
+  padding-block: 0.5rem;
+  font-size: var(--t0);
+  font-weight: 400;
+  color: var(--texto-suave);
+  text-align: left;
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pie {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+.pie p {
+  margin: 2px 0;
+}

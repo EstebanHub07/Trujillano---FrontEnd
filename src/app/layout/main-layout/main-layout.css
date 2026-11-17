@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.principal {
+  flex: 1;
+  padding-block: 2rem 3rem;
+}
+
+.pie {
+  padding-block: 1.5rem;
+  font-size: var(--t-1);
+  color: #fff;
+  background: var(--marino);
+}
+
+.pie strong {
+  color: var(--celeste);
+}
+
+/* Al imprimir solo queda el contenido de la página: sin cabecera ni pie. */
+@media print {
+  app-header,
+  .pie {
+    display: none;
+  }
+
+  .principal {
+    padding: 0;
+  }
+}

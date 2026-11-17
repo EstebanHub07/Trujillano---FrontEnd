@@ -1,0 +1,297 @@
+/*
+ * Sistema de diseño de la tienda. Paleta y escala tipográfica salen de la «Guía de estilos» del Figma:
+ * colores #182545, #445895, #7b92f1, #bdd1ff; texto base de 15 px con escala 1.25.
+ * Los componentes solo usan estas variables y clases, para que toda la tienda se vea igual.
+ */
+:root {
+  --marino: #182545;
+  --azul: #445895;
+  --lila: #7b92f1;
+  --celeste: #bdd1ff;
+  --fondo: #f4f6fd;
+  --superficie: #ffffff;
+  --borde: #d9e1f7;
+  --texto: #182545;
+  --texto-suave: #55627f;
+  --exito: #1f7a4d;
+  --error: #b3261e;
+
+  --t-1: 0.8rem;
+  --t0: 1rem;
+  --t1: 1.267rem;
+  --t2: 1.533rem;
+  --t3: 1.933rem;
+  --t4: 2.467rem;
+
+  --radio: 14px;
+  --radio-chico: 10px;
+  --sombra: 0 1px 2px rgb(24 37 69 / 8%), 0 6px 18px rgb(24 37 69 / 8%);
+  --sombra-alta: 0 2px 4px rgb(24 37 69 / 10%), 0 14px 30px rgb(24 37 69 / 14%);
+  --ancho: 1200px;
+}
+
+html {
+  font-size: 93.75%; /* 15 px */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--t0);
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--t3);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--t2);
+  line-height: 1.25;
+}
+
+a {
+  color: var(--azul);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.contenedor {
+  width: min(100% - 2rem, var(--ancho));
+  margin-inline: auto;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: var(--radio-chico);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.boton:hover:not(:disabled) {
+  background: var(--marino);
+  border-color: var(--marino);
+}
+
+.boton:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.boton--secundario {
+  color: var(--azul);
+  background: transparent;
+}
+
+.boton--secundario:hover:not(:disabled) {
+  color: #fff;
+}
+
+.boton--completo {
+  width: 100%;
+}
+
+/* Etiquetas y avisos */
+.chip {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  font-size: var(--t-1);
+  font-weight: 600;
+  color: var(--marino);
+  background: var(--celeste);
+  border-radius: 999px;
+}
+
+.alerta {
+  padding: 0.9rem 1.1rem;
+  color: var(--error);
+  background: #fdecea;
+  border: 1px solid #f3b8b3;
+  border-radius: var(--radio-chico);
+}
+
+.vacio {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Estado de un pedido (Pendiente, Pagado…): mismo aspecto en la lista y en el detalle. */
+.estado {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--t-1);
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.estado--aviso {
+  color: #7a4a00;
+  background: #fff0cc;
+}
+
+.estado--info {
+  color: var(--marino);
+  background: var(--celeste);
+}
+
+.estado--exito {
+  color: var(--exito);
+  background: #dff3e8;
+}
+
+.estado--error {
+  color: var(--error);
+  background: #fdeceb;
+}
+
+/* Campo de formulario: etiqueta, control y mensaje de error. */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+  border: 2px solid var(--borde);
+  border-radius: var(--radio-chico);
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible {
+  border-color: var(--azul);
+}
+
+.campo input[aria-invalid='true'],
+.campo select[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.campo__ayuda,
+.campo__error {
+  font-size: var(--t-1);
+}
+
+.campo__ayuda {
+  color: var(--texto-suave);
+}
+
+.campo__error {
+  color: var(--error);
+}
+
+.alerta--error {
+  color: var(--error);
+  background: #fdeceb;
+  border-color: #f3b9b5;
+}
+
+/* ---------- Impresión ---------- */
+.solo-impresion {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .no-imprimir {
+    display: none !important;
+  }
+
+  .solo-impresion {
+    display: block;
+  }
+
+  .tarjeta {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
